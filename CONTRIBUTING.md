@@ -78,7 +78,7 @@ npm run test
 
 - [electron-react-redux-boilerplate](https://github.com/jschr/electron-react-redux-boilerplate)
 
-### How the PR process works :building_construction:
+## How the PR process works :building_construction:
 
 :white_check_mark:
 Check for open issues
