@@ -13,7 +13,8 @@ export default class RequestTab extends Component {
     outgoingData: [],
     incomingData: [],
     status: WebSocket.CLOSED,
-    activeTab: 1,
+    requestOptions: ['Messages', 'Headers/Options'],
+    activeTab: 0,
     headers: [{ name: '', value: '', active: true }],
   };
 
@@ -106,6 +107,8 @@ export default class RequestTab extends Component {
   };
 
   render() {
+    if (!this.props.isActive) return null;
+
     return (
       <>
         <div className="box">
@@ -130,25 +133,19 @@ export default class RequestTab extends Component {
         <div className="box">
           <div className="tabs is-boxed">
             <ul>
-              <li className={this.state.activeTab == 1 ? 'is-active' : undefined}>
-                <a
-                  onClick={() => {
-                    this.handleActiveTab(1);
-                  }}>
-                  Messages
-                </a>
-              </li>
-              <li className={this.state.activeTab == 2 ? 'is-active' : undefined}>
-                <a
-                  onClick={() => {
-                    this.handleActiveTab(2);
-                  }}>
-                  Headers/Options
-                </a>
-              </li>
+              {this.state.requestOptions.map((request, index) => (
+                <li key={index} className={this.state.activeTab == index ? 'is-active' : undefined}>
+                  <a
+                    onClick={() => {
+                      this.handleActiveTab(index);
+                    }}>
+                    {request}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
-          {this.state.activeTab == 1 && (
+          {this.state.activeTab == 0 && (
             <div className="field">
               <div className="field is-grouped">
                 <div className="control is-expanded">
@@ -169,7 +166,7 @@ export default class RequestTab extends Component {
               </div>
             </div>
           )}
-          {this.state.activeTab == 2 && (
+          {this.state.activeTab == 1 && (
             <HeaderInputList
               headers={this.state.headers}
               handleChange={this.handleHeaderInputListChange}

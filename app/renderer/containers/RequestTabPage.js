@@ -1,8 +1,8 @@
-import { connect } from "react-redux";
-import RequestTab from "../components/RequestTab";
+import { connect } from 'react-redux';
+import RequestTabList from '../components/RequestTabList';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return state;
 };
 
-export default connect(mapStateToProps)(RequestTab);
+export default connect(mapStateToProps)(RequestTabList);
