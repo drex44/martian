@@ -3,24 +3,49 @@ import WebSocket from 'ws';
 import ConnectionButton from './ConnectionButton';
 import PacketDataList from './PacketDataList';
 import HeaderInputList from './HeaderInputList';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import requestsActions from '../actions/requests';
 
-export default class RequestTab extends Component {
+class RequestTab extends Component {
   ws = null;
 
-  state = {
-    url: 'wss://echo.websocket.org/',
-    message: '',
-    outgoingData: [],
-    incomingData: [],
-    status: WebSocket.CLOSED,
-    requestOptions: ['Messages', 'Headers/Options'],
-    activeTab: 0,
-    headers: [],
-  };
+  constructor(props) {
+    super(props);
+    const { request } = props;
+    this.state = {
+      url: 'wss://echo.websocket.org/',
+      message: '',
+      headers: [],
+      outgoingData: [],
+      incomingData: [],
+      status: WebSocket.CLOSED,
+      activeTab: 0,
+      requestOptions: ['Messages', 'Headers/Options'],
+      ...request,
+    };
+  }
 
   componentDidMount() {
     this.handleAddNewHeaderInput();
+    window.addEventListener('unload', this.onApplicationClose);
   }
+
+  onApplicationClose = () => {
+    const headers = [];
+    this.state.headers.map((header) => {
+      if (header.name != '' && header.value != '') headers.push(header);
+    });
+
+    this.props.onSaveRequest({
+      ...this.props.request,
+      url: this.state.url,
+      message: this.state.message,
+      headers,
+      outgoingData: this.state.outgoingData,
+      incomingData: this.state.incomingData,
+    });
+  };
 
   onClose = () => {
     console.log('disconnected');
@@ -34,7 +59,6 @@ export default class RequestTab extends Component {
 
   onOpen = () => {
     console.log('connected');
-
     this.setState({
       status: WebSocket.OPEN,
       outgoingData: [],
@@ -191,3 +215,21 @@ export default class RequestTab extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return state;
+};
+
+const mapDispatchToProps = (dispatch) => {
+  const requests = bindActionCreators(requestsActions, dispatch);
+  return {
+    onSaveRequest: (data) => {
+      requests.saveRequest(data);
+    },
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(RequestTab);

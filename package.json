@@ -16,6 +16,7 @@
     "cool-checkboxes-for-bulma.io": "^1.1.0",
     "font-awesome": "^4.7.0",
     "history": "^4.6.3",
+    "lodash": "^4.17.11",
     "prop-types": "^15.5.10",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

@@ -5,31 +5,22 @@ export default class RequestTabList extends Component {
   state = { activeTab: 0, tabs: [], count: 0 };
 
   componentDidMount() {
-    this.handleAddNewTab();
+    // this.handleAddNewTab();
   }
 
   handleAddNewTab = () => {
-    this.setState((state) => ({
-      tabs: [
-        ...state.tabs,
-        {
-          name: 'New Tab',
-          id: state.count,
-        },
-      ],
-      count: state.count + 1,
-      activeTab: state.tabs.length,
-    }));
+    const activeTab = this.props.requests.requests.length;
+    this.props.onAddNewRequest();
+    this.setState({ activeTab });
   };
 
   handleDeleteTab = (index) => {
-    const tabs = this.state.tabs;
+    this.props.onDeleteRequest(index);
     let activeTab = this.state.activeTab;
-    tabs.splice(index, 1);
     if (index <= activeTab) {
       activeTab = activeTab - 1 >= 0 ? activeTab - 1 : 0;
     }
-    this.setState({ activeTab, tabs });
+    this.setState({ activeTab });
   };
 
   handleActiveTab = (activeTab) => {
@@ -37,13 +28,15 @@ export default class RequestTabList extends Component {
   };
 
   render() {
+    const { requests } = this.props.requests;
+
     return (
       <div>
         <div className="tabs is-boxed">
           <ul>
-            {this.state.tabs.map((tab, index) => (
+            {requests.map((tab, index) => (
               <li key={index} className={this.state.activeTab == index ? 'is-active' : undefined}>
-                <a>
+                <a style={{ paddingRight: '0px' }}>
                   <p
                     onClick={() => {
                       this.handleActiveTab(index);
@@ -54,7 +47,8 @@ export default class RequestTabList extends Component {
                     className="button is-small is-danger is-rounded is-inverted"
                     onClick={() => {
                       this.handleDeleteTab(index);
-                    }}>
+                    }}
+                    style={{ margin: '0px 5px' }}>
                     x
                   </button>
                 </a>
@@ -70,8 +64,12 @@ export default class RequestTabList extends Component {
             </li>
           </ul>
         </div>
-        {this.state.tabs.map((tab) => (
-          <RequestTab key={tab.id} isActive={this.state.tabs[this.state.activeTab].id == tab.id} />
+        {requests.map((tab) => (
+          <RequestTab
+            key={tab.id}
+            request={tab}
+            isActive={requests[this.state.activeTab].id == tab.id}
+          />
         ))}
       </div>
     );
