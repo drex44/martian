@@ -1,5 +1,5 @@
 import path from 'path';
-import { app, crashReporter, BrowserWindow, Menu } from 'electron';
+import { app, crashReporter, BrowserWindow, Menu, shell } from 'electron';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -38,6 +38,50 @@ app.on('ready', async () => {
   if (isDevelopment) {
     await installExtensions();
   }
+
+  const menuTemplate = [
+    {
+      label: 'File',
+      submenu: [
+        {
+          type: 'separator',
+        },
+        {
+          label: 'Quit',
+          role: 'quit',
+        },
+      ],
+    },
+    {
+      label: 'Edit',
+      role: 'editMenu',
+    },
+    {
+      label: 'View',
+      submenu: [
+        {
+          label: 'Toggle Full Screen',
+          role: 'toggleFullScreen',
+        },
+      ],
+    },
+    {
+      label: 'Help',
+      submenu: [
+        {
+          label: 'About/GitHub',
+          click: () => {
+            shell.openExternal(
+              'https://github.com/drex44/martian#wip-martian--electron-based-websocket-testing-tool',
+            );
+          },
+        },
+      ],
+    },
+  ];
+
+  const menu = Menu.buildFromTemplate(menuTemplate);
+  Menu.setApplicationMenu(menu);
 
   mainWindow = new BrowserWindow({
     width: 1000,

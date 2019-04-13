@@ -1,6 +1,6 @@
 {
   "name": "martian",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "Websocket test tool",
   "main": "init.js",
   "author": {

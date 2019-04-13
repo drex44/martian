@@ -32,26 +32,35 @@ export default class RequestTabList extends Component {
 
     return (
       <div>
-        <div className="tabs is-boxed">
+        <div className="tabs is-boxed" style={{ margin: '0.15em' }}>
           <ul>
             {requests.map((tab, index) => (
-              <li key={index} className={this.state.activeTab == index ? 'is-active' : undefined}>
-                <a style={{ paddingRight: '0px' }}>
-                  <p
-                    onClick={() => {
-                      this.handleActiveTab(index);
-                    }}>
-                    {tab.name}
-                  </p>
+              <li
+                key={index}
+                className={[
+                  'field has-addons ',
+                  this.state.activeTab == index ? 'is-active' : undefined,
+                ].join(' ')}
+                style={{ margin: '0em 0.2em' }}>
+                <div className="control">
+                  <a>
+                    <p
+                      onClick={() => {
+                        this.handleActiveTab(index);
+                      }}>
+                      {tab.name}
+                    </p>
+                  </a>
+                </div>
+                <div className="control" style={{ marginLeft: '0.1em' }}>
                   <button
-                    className="button is-small is-danger is-rounded is-inverted"
+                    className="button is-small is-rounded is-danger is-inverted"
                     onClick={() => {
                       this.handleDeleteTab(index);
-                    }}
-                    style={{ margin: '0px 5px' }}>
+                    }}>
                     x
                   </button>
-                </a>
+                </div>
               </li>
             ))}
             <li>
@@ -64,13 +73,15 @@ export default class RequestTabList extends Component {
             </li>
           </ul>
         </div>
-        {requests.map((tab) => (
-          <RequestTab
-            key={tab.id}
-            request={tab}
-            isActive={requests[this.state.activeTab].id == tab.id}
-          />
-        ))}
+        <div style={{ margin: '1em' }}>
+          {requests.map((tab) => (
+            <RequestTab
+              key={tab.id}
+              request={tab}
+              isActive={requests[this.state.activeTab].id == tab.id}
+            />
+          ))}
+        </div>
       </div>
     );
   }

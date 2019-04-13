@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function PacketDataList({ packetList }) {
+function PacketDataList({ packetList, incoming }) {
   return (
     <div>
       {packetList.map((packet, index) => (
         <React.Fragment key={index}>
-          <p>{packet.timestamp}</p>
-          <p>{packet.data}</p>
+          <article className={['message', incoming ? 'is-success' : 'is-warning'].join(' ')}>
+            <div className="message-body">
+              <p>{packet.timestamp}</p>
+              <strong>
+                <p>{packet.data}</p>
+              </strong>
+            </div>
+          </article>
         </React.Fragment>
       ))}
     </div>

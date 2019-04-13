@@ -157,15 +157,15 @@ class RequestTab extends Component {
         </div>
 
         <div className="box">
-          <div className="tabs is-boxed">
+          <div className="tabs">
             <ul>
-              {this.state.requestOptions.map((request, index) => (
+              {this.state.requestOptions.map((option, index) => (
                 <li key={index} className={this.state.activeTab == index ? 'is-active' : undefined}>
                   <a
                     onClick={() => {
                       this.handleActiveTab(index);
                     }}>
-                    {request}
+                    {option}
                   </a>
                 </li>
               ))}
@@ -186,7 +186,7 @@ class RequestTab extends Component {
                 </div>
               </div>
               <div className="control">
-                <button className="button is-primary" onClick={this.handleMessageSend}>
+                <button className="button is-warning" onClick={this.handleMessageSend}>
                   Send
                 </button>
               </div>
@@ -202,12 +202,12 @@ class RequestTab extends Component {
 
           <div className="columns is-gapless">
             <div className="column">
-              <h2 className="label">Outgoing: </h2>
+              <h2 className="label">Sent: </h2>
               <PacketDataList packetList={this.state.outgoingData} />
             </div>
             <div className="column">
-              <h2 className="label">Incoming: </h2>
-              <PacketDataList packetList={this.state.incomingData} />
+              <h2 className="label">Received: </h2>
+              <PacketDataList packetList={this.state.incomingData} incoming />
             </div>
           </div>
         </div>

@@ -6,11 +6,22 @@
 
 A tool to test websockets until this feature comes to Postman.
 
-We just started working on this so it still has some code from the boilerplate. Kept it to use it as reference. Will remove it soon.
+We just started working on this so it still has some code from the boilerplate. Kept it to use it as
+reference. Will remove it soon.
 
 Help us build it better with your suggestions!
 
 - Suggest a feature submitting new issues
+
+## Features
+
+- Multiple tabs
+- Available on all platforms
+- Automatic save all open requests on close
+- Modern UI thanks to React and Bulma
+- Need more? Raise an issue and tell us!
+
+![Screenshot](/docs/ss1.png)
 
 ## Quick start
 
@@ -35,11 +46,12 @@ Help us build it better with your suggestions!
 
 ## Contributing
 
-This repository is open to all forms of suggestions. so wear your thinking hat and let the hacking begin.
+This repository is open to all forms of suggestions. so wear your thinking hat and let the hacking
+begin.
 
-For more, check out the [Contributing.md](https://github.com/drex44/martian/blob/master/CONTRIBUTING.md)
+For more, check out the
+[Contributing.md](https://github.com/drex44/martian/blob/master/CONTRIBUTING.md)
 
 ## License
 
-This repository is licensed under the MIT license. See `LICENSE` for
-details.
+This repository is licensed under the MIT license. See `LICENSE` for details.
