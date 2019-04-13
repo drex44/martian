@@ -15,10 +15,12 @@ export default class RequestTab extends Component {
     status: WebSocket.CLOSED,
     requestOptions: ['Messages', 'Headers/Options'],
     activeTab: 0,
-    headers: [{ name: '', value: '', active: true }],
+    headers: [],
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.handleAddNewHeaderInput();
+  }
 
   onClose = () => {
     console.log('disconnected');
@@ -61,7 +63,7 @@ export default class RequestTab extends Component {
       this.setState({
         status: WebSocket.CONNECTING,
       });
-      let options = {};
+      const options = {};
       this.state.headers.map((header) => {
         if (header.active == true && header.name != '' && header.value != '')
           options[header.name] = header.value;
