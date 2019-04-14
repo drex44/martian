@@ -13,6 +13,10 @@ Help us build it better with your suggestions!
 
 - Suggest a feature submitting new issues
 
+## Download
+
+[v0.5.0-alpha](https://github.com/drex44/martian/releases)
+
 ## Features
 
 - Multiple tabs
@@ -20,6 +24,9 @@ Help us build it better with your suggestions!
 - Automatic save all open requests on close
 - Modern UI thanks to React and Bulma
 - Need more? Raise an issue and tell us!
+- [WIP] Different body types parsing and formating such as JSON
+- [WIP] Easy way to set authorization headers
+- [WIP] History repeat. Send previously sent messages with just a click!
 
 ![Screenshot](/docs/ss1.png)
 
