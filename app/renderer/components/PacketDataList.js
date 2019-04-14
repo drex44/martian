@@ -10,7 +10,7 @@ function PacketDataList({ packetList, incoming }) {
             <div className="message-body">
               <p>{packet.timestamp}</p>
               <strong>
-                <p>{packet.data}</p>
+                <p>{incoming ? packet.message : JSON.stringify(packet.message)}</p>
               </strong>
             </div>
           </article>

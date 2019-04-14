@@ -13,22 +13,28 @@ Help us build it better with your suggestions!
 
 - Suggest a feature submitting new issues
 
-## Download
+## Downloads
 
-[v0.5.0-alpha](https://github.com/drex44/martian/releases)
+**v0.5.1**
+
+- [Linux direct app](https://github.com/drex44/martian/releases/download/untagged-429e43237639b36a063a/Martian-alpha.0.5.1.AppImage)
+- [Linux deb](https://github.com/drex44/martian/releases/download/untagged-429e43237639b36a063a/martian_0.5.1_amd64.deb)
+- [Windows exe](https://github.com/drex44/martian/releases/download/untagged-429e43237639b36a063a/Martian-alpha.Setup.0.5.1.exe)
+- [Windows exe.blockmap](https://github.com/drex44/martian/releases/download/untagged-429e43237639b36a063a/Martian-alpha.Setup.0.5.1.exe.blockmap)
 
 ## Features
 
 - Multiple tabs
-- Available on all platforms
+- Available on all platforms (Mac: Can be run in dev mode until build error is resolved and Binary
+  is available.)
 - Automatic save all open requests on close
 - Modern UI thanks to React and Bulma
 - Need more? Raise an issue and tell us!
-- [WIP] Different body types parsing and formating such as JSON
+- Different body types parsing and formating such as JSON, Text.
 - [WIP] Easy way to set authorization headers
 - [WIP] History repeat. Send previously sent messages with just a click!
 
-![Screenshot](/docs/ss1.png)
+![Screenshot](/docs/ss1.jpg)
 
 ## Quick start
 

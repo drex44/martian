@@ -18,6 +18,12 @@ export default class HeaderInputList extends React.Component {
     this.props.handleChange(headers);
   };
 
+  handleDelete = (index) => {
+    const headers = [...this.props.headers];
+    headers.splice(index, 1);
+    this.props.handleChange(headers);
+  };
+
   render() {
     return (
       <>
@@ -26,9 +32,10 @@ export default class HeaderInputList extends React.Component {
             key={index}
             header={header}
             handleChange={(e) => this.handleChange(e, index)}
+            handleDelete={() => this.handleDelete(index)}
           />
         ))}
-        <button className="field button is-warning" onClick={this.props.handleAddNew}>
+        <button className="field button is-outlined is-dark" onClick={this.props.handleAddNew}>
           +
         </button>
       </>
@@ -36,7 +43,7 @@ export default class HeaderInputList extends React.Component {
   }
 }
 
-function HeaderInput({ handleChange, header }) {
+function HeaderInput({ handleChange, handleDelete, header }) {
   return (
     <div className="field">
       <div className="field is-grouped">
@@ -62,6 +69,11 @@ function HeaderInput({ handleChange, header }) {
             value={header.value}
             onChange={handleChange}
           />
+        </div>
+        <div className="control">
+          <button className="button is-outlined is-danger" onClick={handleDelete}>
+            x
+          </button>
         </div>
       </div>
     </div>
