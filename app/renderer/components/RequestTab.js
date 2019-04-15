@@ -31,10 +31,10 @@ class RequestTab extends Component {
 
   componentDidMount() {
     this.handleAddNewHeaderInput();
-    window.addEventListener('unload', this.onApplicationClose);
+    window.addEventListener('unload', this.persistRequestState);
   }
 
-  onApplicationClose = () => {
+  persistRequestState = () => {
     const headers = [];
     this.state.headers.map((header) => {
       if (header.name != '' && header.value != '') headers.push(header);
@@ -62,6 +62,7 @@ class RequestTab extends Component {
 
   onOpen = () => {
     console.log('connected');
+    this.persistRequestState();
     this.setState({
       status: WebSocket.OPEN,
     });
@@ -75,8 +76,6 @@ class RequestTab extends Component {
   };
 
   handleMessageChange = (event) => {
-    console.log(event);
-
     if (event.json) {
       this.setState((state) => ({
         message: {
@@ -96,7 +95,6 @@ class RequestTab extends Component {
   };
 
   handleChange = (event) => {
-    // console.log(event.target);
     const { name, value } = event.target;
     if (name == 'messageType') {
       this.setState({

@@ -43,12 +43,17 @@ export default class RequestTabList extends Component {
                 ].join(' ')}
                 style={{ margin: '0em 0.2em' }}>
                 <div className="control">
-                  <a>
-                    <p
-                      onClick={() => {
-                        this.handleActiveTab(index);
-                      }}>
-                      {tab.name}
+                  <a
+                    onClick={() => {
+                      this.handleActiveTab(index);
+                    }}>
+                    <p>
+                      {tab.url
+                        ? tab.url
+                            .replace('wss://', '')
+                            .replace('ws://', '')
+                            .substring(0, 15) + '..'
+                        : tab.name}
                     </p>
                   </a>
                 </div>

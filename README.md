@@ -15,12 +15,11 @@ Help us build it better with your suggestions!
 
 ## Downloads
 
-**v0.5.1**
+**v0.5.2**
 
-- [Linux direct app](https://github.com/drex44/martian/releases/download/untagged-429e43237639b36a063a/Martian-alpha.0.5.1.AppImage)
-- [Linux deb](https://github.com/drex44/martian/releases/download/untagged-429e43237639b36a063a/martian_0.5.1_amd64.deb)
-- [Windows exe](https://github.com/drex44/martian/releases/download/untagged-429e43237639b36a063a/Martian-alpha.Setup.0.5.1.exe)
-- [Windows exe.blockmap](https://github.com/drex44/martian/releases/download/untagged-429e43237639b36a063a/Martian-alpha.Setup.0.5.1.exe.blockmap)
+- [Linux direct app](https://github.com/drex44/martian/releases/download/v0.5.2/Martian-alpha.0.5.2.AppImage)
+- [Linux deb](https://github.com/drex44/martian/releases/download/v0.5.2/martian_0.5.2_amd64.deb)
+- [Windows exe](https://github.com/drex44/martian/releases/download/v0.5.2/Martian-alpha.Setup.0.5.2.exe)
 
 ## Features
 
