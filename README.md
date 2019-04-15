@@ -6,12 +6,9 @@
 
 A tool to test websockets until this feature comes to Postman.
 
-We just started working on this so it still has some code from the boilerplate. Kept it to use it as
-reference. Will remove it soon.
-
 Help us build it better with your suggestions!
 
-- Suggest a feature submitting new issues
+- Raise an issue to submit your idea.
 
 ## Downloads
 
