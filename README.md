@@ -2,7 +2,7 @@
 
 [![Build Status](https://api.travis-ci.org/drex44/martian.svg)](https://travis-ci.org/drex44/martian)
 [![dependencies Status](https://david-dm.org/drex44/martian/status.svg)](https://david-dm.org/drex44/martian)
-[![devDependencies Status](https://david-dm.org/drex44/martian/dev-status.svg)](https://david-dm.org/drex44/martian?type=dev)
+[![devDependencies Status](https://david-dm.org/drex44/martian/dev-status.svg)](https://david-dm.org/drex44/martian?type=dev) [![Greenkeeper badge](https://badges.greenkeeper.io/drex44/martian.svg)](https://greenkeeper.io/)
 
 A tool to test websockets until this feature comes to Postman.
 
